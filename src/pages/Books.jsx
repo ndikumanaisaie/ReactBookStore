@@ -1,12 +1,16 @@
 import React from 'react';
-import Form from '../components/Form';
+import AddBookForm from '../components/AddBookForm';
 import Book from '../components/Book';
 
 const Home = () => (
-  <>
+  <div style={{
+    backgroundColor: '#fafafa',
+    padding: '0 5%',
+  }}
+  >
     <Book />
-    <Form />
-  </>
+    <AddBookForm />
+  </div>
 );
 
 export default Home;
