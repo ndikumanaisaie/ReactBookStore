@@ -1,15 +1,16 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-## Math magician
+## Book Store
 
 > "Math magicians" is a website for all fans of mathematics. It is a Single Page App (SPA) that allows users to make simple calculations and to read random math-ralated quotes.
 
 ## Below is the screenshot of my work
-![tour](https://github.com/ndikumanaisaie/math-magician/blob/develop/src/images/shot.png)
+![tour](https://github.com/ndikumanaisaie/ReactBookStore/blob/develop/src/images/shot.png)
 
 ## Built with
 - Javascript
 - React
+- Redux
 - gitflow
 
 ## Author
@@ -21,15 +22,15 @@
 - LinkedIn: [Ndikumana Isaie](https://www.linkedin.com/in/ndikumanaisaie/)
 
 ## Link to URL on gitHub
-- [math-magicial](https://github.com/ndikumanaisaie/math-magician.git)
+- [math-magicial](https://github.com/ndikumanaisaie/ReactBookStore.git)
 
 ## Getting Started
 
 To get a local copy up and running follow these simple example steps.
 
 ## Setup
-clone: run `git clone https://github.com/ndikumanaisaie/math-magician.git`
-Move to cloned folder: run git cd math-magician.
+clone: run `git clone https://github.com/ndikumanaisaie/ReactBookStore.git`
+Move to cloned folder: run git cd ReactBookStore.
 
 ## Install
 
