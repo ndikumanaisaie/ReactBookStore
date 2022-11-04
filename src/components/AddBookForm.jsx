@@ -1,4 +1,5 @@
 import React from 'react';
+import '../assets/styles/addNewBook.css';
 
 const AddBookForm = () => {
   const addNewBook = () => {
@@ -6,7 +7,7 @@ const AddBookForm = () => {
   };
 
   return (
-    <section className="AddSection">
+    <section className="add-book-section">
       <div className="title">
         <h2>ADD NEW BOOK</h2>
       </div>
@@ -19,11 +20,11 @@ const AddBookForm = () => {
         />
         <input
           type="text"
-          placeholder="Book Author"
+          placeholder="Book author"
           value="author"
-          className="hide"
+          required
         />
-        <select name="genre" value="genre">
+        <select className="hide" name="genre" value="genre">
           <option hidden value="category"> Category </option>
           <option value="Action">Action</option>
           <option value="Science Fiction">Science Fiction</option>

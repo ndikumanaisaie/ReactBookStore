@@ -1,5 +1,6 @@
 import React from 'react';
 import '../assets/styles/book.css';
+import { AiOutlineLoading3Quarters as Loading } from 'react-icons/ai';
 
 const Book = () => (
   <section className="book-card">
@@ -15,6 +16,7 @@ const Book = () => (
     </div>
     <article>
       <div className="pourcentage">
+        <Loading className="loading" />
         <div>
           <span>
             64
