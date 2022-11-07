@@ -1,9 +1,33 @@
-import React from 'react';
+/* eslint-disable no-alert */
+import React, { useState } from 'react';
 import '../assets/styles/addNewBook.css';
 
 const AddBookForm = () => {
-  const addNewBook = () => {
-    console.log('submitted');
+  const [inputText, setInputText] = useState({
+    title: '',
+    author: '',
+  });
+
+  const handleChange = (e) => {
+    e.preventDefault();
+    setInputText({
+      ...inputText,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  console.log(inputText);
+
+  const addNewBook = (e) => {
+    e.preventDefault();
+    if (inputText.title.trim() && inputText.author.trim()) {
+      setInputText({
+        title: '',
+        author: '',
+      });
+    } else {
+      alert('Please add book and author');
+    }
   };
 
   return (
@@ -15,13 +39,17 @@ const AddBookForm = () => {
         <input
           type="text"
           placeholder="Book title"
-          value="title"
+          value={inputText.title}
+          name="title"
+          onChange={handleChange}
           required
         />
         <input
           type="text"
           placeholder="Book author"
-          value="author"
+          value={inputText.author}
+          name="author"
+          onChange={handleChange}
           required
         />
         <select className="hide" name="genre" value="genre">
