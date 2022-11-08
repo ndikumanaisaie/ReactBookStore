@@ -1,5 +1,8 @@
 /* eslint-disable no-alert */
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { nanoid } from '@reduxjs/toolkit';
+import { addBook } from '../redux/books/bookSlice';
 import '../assets/styles/addNewBook.css';
 
 const AddBookForm = () => {
@@ -7,6 +10,8 @@ const AddBookForm = () => {
     title: '',
     author: '',
   });
+
+  const dispatch = useDispatch();
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -16,11 +21,13 @@ const AddBookForm = () => {
     });
   };
 
-  console.log(inputText);
-
   const addNewBook = (e) => {
     e.preventDefault();
     if (inputText.title.trim() && inputText.author.trim()) {
+      dispatch(addBook({
+        ...inputText,
+        id: nanoid(),
+      }));
       setInputText({
         title: '',
         author: '',
@@ -52,7 +59,7 @@ const AddBookForm = () => {
           onChange={handleChange}
           required
         />
-        <select className="hide" name="genre" value="genre">
+        <select className="hide" onChange={handleChange} name="genre" value="genre">
           <option hidden value="category"> Category </option>
           <option value="Action">Action</option>
           <option value="Science Fiction">Science Fiction</option>
