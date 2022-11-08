@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { nanoid } from '@reduxjs/toolkit';
-import { addBook } from '../features/books/bookSlice';
+import { addBook } from '../redux/books/bookSlice';
 import '../assets/styles/addNewBook.css';
 
 const AddBookForm = () => {

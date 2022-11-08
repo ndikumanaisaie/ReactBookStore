@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import '../assets/styles/book.css';
 import { AiOutlineLoading3Quarters as Loading } from 'react-icons/ai';
-import { removeBook } from '../features/books/bookSlice';
+import { removeBook } from '../redux/books/bookSlice';
 
 const Book = ({ books }) => {
   const dispatch = useDispatch();
