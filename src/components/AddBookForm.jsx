@@ -21,8 +21,6 @@ const AddBookForm = () => {
     });
   };
 
-  // console.log(inputText);
-
   const addNewBook = (e) => {
     e.preventDefault();
     if (inputText.title.trim() && inputText.author.trim()) {
