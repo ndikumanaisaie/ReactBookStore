@@ -1,9 +1,9 @@
 /* eslint-disable no-alert */
 import React, { useState } from 'react';
-import '../assets/styles/addNewBook.css';
 import { useDispatch } from 'react-redux';
 import { nanoid } from '@reduxjs/toolkit';
 import { addBook } from '../features/books/bookSlice';
+import '../assets/styles/addNewBook.css';
 
 const AddBookForm = () => {
   const [inputText, setInputText] = useState({

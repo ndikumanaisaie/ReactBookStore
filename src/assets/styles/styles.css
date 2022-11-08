@@ -38,7 +38,7 @@ button {
 }
 
 .check-status {
-  margin-left: 31.125rem;
+  margin-left: 50%;
   font-size: 0.8rem;
   font-weight: 300;
   letter-spacing: 0.5px;
@@ -53,4 +53,9 @@ button {
 .check-status:hover {
   cursor: pointer;
   transform: scale(1.1);
+}
+
+.h1 {
+  font-size: 36px;
+  margin-left: 50%;
 }

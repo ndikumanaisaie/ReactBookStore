@@ -5,12 +5,22 @@ const bookSlice = createSlice({
   name: 'books',
   initialState: {
     book: {},
-    books: [],
+    books: [
+      {
+        title: 'Conan the barbarian',
+        author: 'Ndikumana Isaie',
+        id: '2wEoOULJ9t76goGgjhPZn',
+      },
+      {
+        title: 'React tutorial for dummies',
+        author: 'Ndikumana Isaie',
+        id: '2wEoOULJ9t76aoGgjhPZn',
+      },
+    ],
   },
   reducers: {
     addBook: (state, action) => {
       state.books.push(action.payload);
-      localStorage.setItem('books', JSON.stringify({ ...action.payload }));
     },
     removeBook: (state, action) => {
       const { id } = action.payload;
