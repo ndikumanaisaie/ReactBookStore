@@ -1,12 +1,17 @@
 /* eslint-disable no-alert */
 import React, { useState } from 'react';
 import '../assets/styles/addNewBook.css';
+import { useDispatch } from 'react-redux';
+import { nanoid } from '@reduxjs/toolkit';
+import { addBook } from '../features/books/bookSlice';
 
 const AddBookForm = () => {
   const [inputText, setInputText] = useState({
     title: '',
     author: '',
   });
+
+  const dispatch = useDispatch();
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -21,6 +26,10 @@ const AddBookForm = () => {
   const addNewBook = (e) => {
     e.preventDefault();
     if (inputText.title.trim() && inputText.author.trim()) {
+      dispatch(addBook({
+        ...inputText,
+        id: nanoid(),
+      }));
       setInputText({
         title: '',
         author: '',
