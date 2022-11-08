@@ -5,7 +5,7 @@
 > "Math magicians" is a website for all fans of mathematics. It is a Single Page App (SPA) that allows users to make simple calculations and to read random math-ralated quotes.
 
 ## Below is the screenshot of my work
-![ReactBookStore](https://github.com/ndikumanaisaie/ReactBookStore/blob/develop/src/images/shot.png)
+![ReactBookStore](https://github.com/ndikumanaisaie/ReactBookStore/blob/use-Redux-in-React/src/assets/images/shot.png)
 
 ## Built with
 - Javascript
