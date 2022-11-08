@@ -21,7 +21,7 @@ const AddBookForm = () => {
     });
   };
 
-  console.log(inputText);
+  // console.log(inputText);
 
   const addNewBook = (e) => {
     e.preventDefault();
@@ -61,7 +61,7 @@ const AddBookForm = () => {
           onChange={handleChange}
           required
         />
-        <select className="hide" name="genre" value="genre">
+        <select className="hide" onChange={handleChange} name="genre" value="genre">
           <option hidden value="category"> Category </option>
           <option value="Action">Action</option>
           <option value="Science Fiction">Science Fiction</option>
