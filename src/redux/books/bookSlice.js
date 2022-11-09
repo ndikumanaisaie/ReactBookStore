@@ -43,7 +43,14 @@ const bookSlice = createSlice({
     status: 'idle' || 'loading' || 'succeeded' || 'failed',
     books: [],
   },
-  reducers: {},
+  reducers: {
+    removeBook: (state, action) => {
+      const { id } = action.payload;
+      if (id) {
+        state.books = state.books.filter((book) => book.id !== id);
+      }
+    },
+  },
   extraReducers(builder) {
     builder
       .addCase(createBook.pending, (state) => {
@@ -75,12 +82,8 @@ const bookSlice = createSlice({
       .addCase(deleteBook.pending, (state) => {
         state.status = 'loading';
       })
-      .addCase(deleteBook.fulfilled, (state, action) => {
+      .addCase(deleteBook.fulfilled, (state) => {
         state.status = 'succeded';
-        const { id } = action.payload;
-        if (id) {
-          state.books = state.books.filter((book) => book.id !== id);
-        }
       })
       .addCase(deleteBook.rejected, (state) => {
         state.status = 'failed';

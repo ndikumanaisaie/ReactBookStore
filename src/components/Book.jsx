@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import '../assets/styles/book.css';
 import { AiOutlineLoading3Quarters as Loading } from 'react-icons/ai';
-import { deleteBook } from '../redux/books/bookSlice';
+import { deleteBook, removeBook } from '../redux/books/bookSlice';
 import Spinner from './Spinner';
 
 const Book = ({ books }) => {
@@ -17,6 +17,7 @@ const Book = ({ books }) => {
   const handleRemove = (id) => {
     if (window.confirm('Are you sure you want to delete this post?')) {
       dispatch(deleteBook({ id, navigate }));
+      dispatch(removeBook({ id }));
     }
   };
 

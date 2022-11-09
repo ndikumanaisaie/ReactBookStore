@@ -10,10 +10,8 @@ const Home = () => {
 
   const dispatch = useDispatch();
   useEffect(() => {
-    if (status === 'idle') {
-      dispatch(getBooks());
-    }
-  }, [status, dispatch]);
+    dispatch(getBooks());
+  }, [dispatch]);
 
   if (status === 'loading') {
     return <Spinner />;
