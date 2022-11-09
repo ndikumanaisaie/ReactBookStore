@@ -25,9 +25,10 @@ export const getBooks = createAsyncThunk('books/getBooks', async () => {
   }
 });
 
-export const deleteBook = createAsyncThunk('books/deletebook', async ({ id }) => {
+export const deleteBook = createAsyncThunk('books/deletebook', async ({ id, navigate }) => {
   try {
     const response = await api.deleteBook(id);
+    navigate('/');
     console.log(response.data);
     return response.data;
   } catch (error) {
@@ -42,17 +43,7 @@ const bookSlice = createSlice({
     status: 'idle' || 'loading' || 'succeeded' || 'failed',
     books: [],
   },
-  reducers: {
-    // addBook: (state, action) => {
-    //   state.books.push(action.payload);
-    // },
-    // removeBook: (state, action) => {
-    //   const { id } = action.payload;
-    //   if (id) {
-    //     state.books = state.books.filter((book) => book.id !== id);
-    //   }
-    // },
-  },
+  reducers: {},
   extraReducers(builder) {
     builder
       .addCase(createBook.pending, (state) => {
@@ -60,7 +51,6 @@ const bookSlice = createSlice({
       })
       .addCase(createBook.fulfilled, (state) => {
         state.status = 'succeeded';
-        // state.books = action.payload;
       })
       .addCase(createBook.rejected, (state) => {
         state.status = 'failed';

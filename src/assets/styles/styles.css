@@ -59,3 +59,9 @@ button {
   font-size: 36px;
   margin-left: 50%;
 }
+
+.spinner {
+  text-align: center;
+  font-size: 36px;
+  color: #0290ff;
+}

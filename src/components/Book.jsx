@@ -1,19 +1,28 @@
 /* eslint-disable no-alert */
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import '../assets/styles/book.css';
 import { AiOutlineLoading3Quarters as Loading } from 'react-icons/ai';
 import { deleteBook } from '../redux/books/bookSlice';
+import Spinner from './Spinner';
 
 const Book = ({ books }) => {
+  const { status } = useSelector((state) => ({ ...state.books }));
+
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleRemove = (id) => {
     if (window.confirm('Are you sure you want to delete this post?')) {
-      dispatch(deleteBook({ id }));
+      dispatch(deleteBook({ id, navigate }));
     }
   };
+
+  if (status === 'loading') {
+    return <Spinner />;
+  }
 
   return (
     <>
