@@ -71,9 +71,9 @@ const bookSlice = createSlice({
       })
       .addCase(createBook.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.books = [action.payload];
+        state.books = action.payload;
       })
-      .addCase(createBook.rejected, (state, action) => {
+      .addCase(createBook.rejected, (state) => {
         state.isLoading = false;
       })
       .addCase(getBooks.pending, (state) => {
@@ -83,7 +83,7 @@ const bookSlice = createSlice({
         state.isLoading = false;
         state.books = action.payload;
       })
-      .addCase(getBooks.rejected, (state, action) => {
+      .addCase(getBooks.rejected, (state) => {
         state.isLoading = false;
       })
       .addCase(deleteBook.pending, (state) => {
@@ -96,7 +96,7 @@ const bookSlice = createSlice({
           state.books = state.books.filter((book) => book.id !== id);
         }
       })
-      .addCase(deleteBook.rejected, (state, action) => {
+      .addCase(deleteBook.rejected, (state) => {
         state.isLoading = false;
       });
   },
