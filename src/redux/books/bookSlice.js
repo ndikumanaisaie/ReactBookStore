@@ -75,6 +75,7 @@ const bookSlice = createSlice({
           id: book[0],
           category: book[1][0].category,
           title: book[1][0].title,
+          author: book[1][0].author,
         }));
         state.books = books;
       })
