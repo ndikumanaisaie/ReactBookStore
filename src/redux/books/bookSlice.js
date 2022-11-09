@@ -3,7 +3,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 import * as api from '../../api';
 
-export const createPost = createAsyncThunk('books/createbook', async ({ updatedBookData }) => {
+export const createBook = createAsyncThunk('books/createbook', async ({ updatedBookData }) => {
   try {
     const response = await api.createBook(updatedBookData);
     console.log(response.data);
@@ -14,7 +14,7 @@ export const createPost = createAsyncThunk('books/createbook', async ({ updatedB
   }
 });
 
-export const getPosts = createAsyncThunk('books/getBooks', async () => {
+export const getBooks = createAsyncThunk('books/getBooks', async () => {
   try {
     const response = await api.getBooks();
     console.log(response.data);
@@ -39,7 +39,7 @@ export const deleteBook = createAsyncThunk('books/deletebook', async ({ id }) =>
 const bookSlice = createSlice({
   name: 'books',
   initialState: {
-    book: {},
+    isLoading: false,
     books: [
       {
         title: 'Conan the barbarian',
@@ -64,7 +64,41 @@ const bookSlice = createSlice({
       }
     },
   },
-  extraReducers: {
+  extraReducers(builder) {
+    builder
+      .addCase(createBook.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(createBook.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.books = [action.payload];
+      })
+      .addCase(createBook.rejected, (state, action) => {
+        state.isLoading = false;
+      })
+      .addCase(getBooks.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(getBooks.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.books = action.payload;
+      })
+      .addCase(getBooks.rejected, (state, action) => {
+        state.isLoading = false;
+      })
+      .addCase(deleteBook.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(deleteBook.fulfilled, (state, action) => {
+        state.isLoading = false;
+        const { id } = action.payload;
+        if (id) {
+          state.books = state.books.filter((book) => book.id !== id);
+        }
+      })
+      .addCase(deleteBook.rejected, (state, action) => {
+        state.isLoading = false;
+      });
   },
 });
 
