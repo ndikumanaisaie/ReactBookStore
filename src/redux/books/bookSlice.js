@@ -40,7 +40,7 @@ const bookSlice = createSlice({
   name: 'books',
   initialState: {
     status: 'idle' || 'loading' || 'succeeded' || 'failed',
-    books: {},
+    books: [],
   },
   reducers: {
     // addBook: (state, action) => {
@@ -70,7 +70,13 @@ const bookSlice = createSlice({
       })
       .addCase(getBooks.fulfilled, (state, action) => {
         state.status = 'succeeded';
-        state.books = action.payload;
+        let books = action.payload;
+        books = Object.entries(books)?.map((book) => ({
+          id: book[0],
+          category: book[1][0].category,
+          title: book[1][0].title,
+        }));
+        state.books = books;
       })
       .addCase(getBooks.rejected, (state) => {
         state.status = 'failed';

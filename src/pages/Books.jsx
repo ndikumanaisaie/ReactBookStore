@@ -8,7 +8,7 @@ const Home = () => {
   const { books, status } = useSelector((state) => ({ ...state.books }));
 
   const dispatch = useDispatch();
-
+  console.log(books);
   useEffect(() => {
     if (status === 'idle') {
       dispatch(getBooks());
