@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import '../assets/styles/book.css';
-import { AiOutlineLoading3Quarters as Loading } from 'react-icons/ai';
+import { CircularProgressbar } from 'react-circular-progressbar';
 import { deleteBook, removeBook } from '../redux/books/bookSlice';
 import Spinner from './Spinner';
 
@@ -45,7 +45,7 @@ const Book = ({ books }) => {
               </div>
               <article>
                 <div className="pourcentage">
-                  <Loading className="loading" />
+                  <CircularProgressbar value={book.parcentage} className="loading" />
                   <div>
                     <span>
                       {

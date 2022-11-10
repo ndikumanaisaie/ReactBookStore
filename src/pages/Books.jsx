@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { Audio } from 'react-loader-spinner';
 import AddBookForm from '../components/AddBookForm';
-import Spinner from '../components/Spinner';
+// import Spinner from '../components/Spinner';
 import Book from '../components/Book';
 import { getBooks } from '../redux/books/bookSlice';
 
@@ -14,7 +15,17 @@ const Home = () => {
   }, [dispatch]);
 
   if (status === 'loading') {
-    return <Spinner />;
+    return (
+      <Audio
+        height="80"
+        width="80"
+        radius="9"
+        color="green"
+        ariaLabel="loading"
+        wrapperStyle
+        wrapperClass
+      />
+    );
   }
 
   return (
