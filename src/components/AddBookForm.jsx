@@ -2,13 +2,14 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { nanoid } from '@reduxjs/toolkit';
-import { addBook } from '../redux/books/bookSlice';
+import { createBook } from '../redux/books/bookSlice';
 import '../assets/styles/addNewBook.css';
 
 const AddBookForm = () => {
   const [inputText, setInputText] = useState({
     title: '',
     author: '',
+    category: '',
   });
 
   const dispatch = useDispatch();
@@ -24,9 +25,9 @@ const AddBookForm = () => {
   const addNewBook = (e) => {
     e.preventDefault();
     if (inputText.title.trim() && inputText.author.trim()) {
-      dispatch(addBook({
+      dispatch(createBook({
         ...inputText,
-        id: nanoid(),
+        item_id: nanoid(),
       }));
       setInputText({
         title: '',
@@ -59,13 +60,13 @@ const AddBookForm = () => {
           onChange={handleChange}
           required
         />
-        <select className="hide" onChange={handleChange} name="genre" value="genre">
-          <option hidden value="category"> Category </option>
-          <option value="Action">Action</option>
-          <option value="Science Fiction">Science Fiction</option>
+        <select className="hide" name="category" value={inputText.category} onChange={handleChange}>
+          <option hidden value="category">Category </option>
+          <option value="history">History</option>
+          <option value="science">Science</option>
           <option value="Economy">Economy</option>
           <option value="Comedy">Comedy</option>
-          <option value="Drama">Drama</option>
+          <option value="Technology">Technology</option>
         </select>
         <button type="button" value="ADD BOOK" onClick={addNewBook}>
           Add Book

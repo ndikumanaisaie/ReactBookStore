@@ -37,7 +37,7 @@
   box-shadow: 0 0 60px 0 rgba(0, 0, 0, 0.05);
   border: var(--border-size);
   border-radius: 4px;
-  width: 40%;
+  width: 30%;
   padding: 0.4rem 0.7rem;
   margin: calc(0.2rem + 0.3rem) 0;
 }
@@ -53,9 +53,9 @@
   border-color: var(--blue-color);
 }
 
-.hide {
+/* .hide {
   display: none;
-}
+} */
 
 select {
   box-shadow: 0 0 60px 0 rgba(0, 0, 0, 0.05);
