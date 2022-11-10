@@ -75,7 +75,7 @@ const bookSlice = createSlice({
           title: book[1][0].title,
           author: book[1][0].author,
           chapter: randomChapter(),
-          parcentage: randomPercentage(),
+          percentage: randomPercentage(),
         }));
         state.books = books;
       })

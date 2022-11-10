@@ -4,7 +4,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import '../assets/styles/book.css';
-import { CircularProgressbar } from 'react-circular-progressbar';
+import {
+  CircularProgressbar,
+  buildStyles,
+} from 'react-circular-progressbar';
 import { deleteBook, removeBook } from '../redux/books/bookSlice';
 import Spinner from './Spinner';
 
@@ -45,13 +48,17 @@ const Book = ({ books }) => {
               </div>
               <article>
                 <div className="pourcentage">
-                  <CircularProgressbar value={book.parcentage} className="loading" />
                   <div>
-                    <span>
-                      {
-                        `${book.parcentage} %`
-                      }
-                    </span>
+                    <CircularProgressbar
+                      value={book.percentage}
+                      text={`${book.percentage}%`}
+                      styles={buildStyles({
+                        textColor: '#0290ff',
+                        pathColor: '#0290ff',
+                        trailColor: '#c4c4c4',
+                        textSize: '24px',
+                      })}
+                    />
                     <p>completed</p>
                   </div>
                 </div>
