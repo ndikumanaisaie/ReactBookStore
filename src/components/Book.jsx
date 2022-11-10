@@ -11,6 +11,8 @@ import Spinner from './Spinner';
 const Book = ({ books }) => {
   const { status } = useSelector((state) => ({ ...state.books }));
 
+  console.log(books);
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -46,13 +48,16 @@ const Book = ({ books }) => {
                   <Loading className="loading" />
                   <div>
                     <span>
-                      64
-                      %
+                      {
+                        `${book.parcentage} %`
+                      }
                     </span>
                     <p>completed</p>
                   </div>
                 </div>
                 <div className="update">
+                  <span>CURRENT CHAPTER</span>
+                  <h2>{book.chapter}</h2>
                   <button type="button">update progress</button>
                 </div>
               </article>

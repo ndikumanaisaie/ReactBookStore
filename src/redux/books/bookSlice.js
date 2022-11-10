@@ -2,6 +2,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 import * as api from '../../api';
+import { randomChapter, randomPercentage } from '../../utils/randomGenerator';
 
 export const createBook = createAsyncThunk('books/createbook', async (updatedBookData) => {
   try {
@@ -73,6 +74,8 @@ const bookSlice = createSlice({
           category: book[1][0].category,
           title: book[1][0].title,
           author: book[1][0].author,
+          chapter: randomChapter(),
+          parcentage: randomPercentage(),
         }));
         state.books = books;
       })
