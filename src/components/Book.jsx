@@ -1,4 +1,4 @@
-/* eslint-disable no-alert */
+/* esdivnt-disable no-alert */
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
@@ -40,25 +40,28 @@ const Book = ({ books }) => {
                 <span>{book.category}</span>
                 <h2>{book.title}</h2>
                 <p>{book.author}</p>
-                <ul>
-                  <li className="btn"><button type="button">Comments</button></li>
-                  <li className="btn"><button type="button" onClick={() => handleRemove(book.id)}>Remove</button></li>
-                  <li className="btn"><button type="button">Edit</button></li>
-                </ul>
+                <div className="control-btn">
+                  <div className="btn"><button type="button">Comments</button></div>
+                  <div className="btn"><button type="button" onClick={() => handleRemove(book.id)}>Remove</button></div>
+                  <div className="btn"><button type="button">Edit</button></div>
+                </div>
               </div>
               <article>
                 <div className="pourcentage">
+                  <CircularProgressbar
+                    value={book.percentage}
+                    styles={buildStyles({
+                      pathColor: '#0290ff',
+                      trailColor: '#c4c4c4',
+                    })}
+                    className="loading"
+                  />
                   <div>
-                    <CircularProgressbar
-                      value={book.percentage}
-                      text={`${book.percentage}%`}
-                      styles={buildStyles({
-                        textColor: '#0290ff',
-                        pathColor: '#0290ff',
-                        trailColor: '#c4c4c4',
-                        textSize: '24px',
-                      })}
-                    />
+                    <span>
+                      {
+                        `${book.percentage} %`
+                      }
+                    </span>
                     <p>completed</p>
                   </div>
                 </div>

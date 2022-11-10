@@ -21,6 +21,7 @@
 
 .article {
   margin-left: 1.7rem;
+  width: 35%;
 }
 
 span {
@@ -40,7 +41,6 @@ h2 {
 }
 
 p {
-  opacity: 0.2;
   color: var(--blue-blur);
   font-size: 0.875rem;
   font-weight: 300;
@@ -52,19 +52,25 @@ ul {
   justify-content: flex-start;
 }
 
-.btn {
-  list-style: none;
-  font-family: inherit;
+.control-btn {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin-top: 1.313rem;
 }
 
 .btn button {
-  background-color: transparent;
-  padding-right: 0.9rem;
+  width: 4.563rem;
+  height: 1.188rem;
+  margin: 0.188rem 0.938rem 0.125rem 0;
   font-size: 0.875rem;
   font-weight: 300;
-  color: var(--blue-blur);
-  height: 1.188rem;
-  transition: all 0.5s ease;
+  font-family: inherit;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #4386bf;
 }
 
 .btn button:hover {
@@ -89,11 +95,50 @@ article {
   flex: 1;
 }
 
+.article span {
+  width: 3.063rem;
+  height: 1.125rem;
+  margin: 0 2.438rem 0 0;
+  opacity: 0.5;
+  font-size: 0.875rem;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: var(--black-two);
+}
+
+.article h2 {
+  width: 22.813rem;
+  height: 1.813rem;
+  margin: 0.188rem 9.688rem 0 0;
+  font-size: 1.375rem;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -0.2px;
+  color: var(--black-two);
+}
+
+.article p {
+  width: 6.688rem;
+  height: 1.188rem;
+  margin: 0.25rem 0 0;
+  font-size: 0.875rem;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #4386bf;
+}
+
 .pourcentage {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-right: 5.75rem;
   border-right: var(--border-size);
 }
 
@@ -106,28 +151,75 @@ article {
 }
 
 .pourcentage span {
+  width: 4.25rem;
+  height: 2.438rem;
+  margin: 0.063rem 5.75rem 0 0.688rem;
   font-size: 2rem;
-  color: var(--back-color);
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: rgb(0, 0, 0);
 }
 
 .pourcentage p {
-  font-size: 0.875rem;
-  color: var(--back-color);
+  width: 5rem;
+  height: 1.125rem;
+  margin: 0.438rem 4.938rem 0.75rem 0.75rem;
   opacity: 0.5;
+  font-size: 0.875rem;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: var(--back-color);
 }
 
+.update {
+  /* border: 2px solid gold; */
+  width: 50%;
+}
+
+.update span {
+  width: 7.875rem;
+  height: 1.125rem;
+  margin: 0.063rem 3.625rem 0 3.688rem;
+  opacity: 0.5;
+  font-size: 0.813rem;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: var(--back-color);
+}
+
+.update h2 {
+  width: 100%;
+  height: 1.313rem;
+  margin: 0.438rem 6.813rem 0.25rem 3.688rem;
+  font-size: 1rem;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -0.4px;
+}
 /* stylelint-disable-next-line no-descending-specificity */
 .update button {
-  margin-left: 1.125rem;
-  font-size: 0.8rem;
-  font-weight: 300;
-  letter-spacing: 0.5px;
-  color: var(--white-backg);
-  background-color: var(--blue-color);
-  padding: 0.5rem 1.375rem;
+  width: 11.5rem;
+  height: 2.063rem;
+  margin: 0.75rem 0 0.563rem 3.688rem;
+  padding: 0.438rem 1.188rem 0.5rem 1.375rem;
   border-radius: 3px;
+  background-color: #0290ff;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: 0.5px;
   text-align: center;
-  transition: all 0.5s ease;
+  color: #fff;
 }
 
 .update button:hover {

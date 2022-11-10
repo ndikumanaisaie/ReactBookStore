@@ -30,7 +30,6 @@ const Home = () => {
 
   return (
     <div style={{
-      backgroundColor: '#fafafa',
       padding: '0 5%',
     }}
     >
