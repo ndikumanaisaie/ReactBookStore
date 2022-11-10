@@ -57,13 +57,19 @@ button {
   margin-left: 50%;
 }
 
-.spinner {
+/* .spinner {
   text-align: center;
   font-size: 36px;
   color: #0290ff;
-}
+} */
 
 .main-container {
   background-color: rgb(255, 255, 255);
   margin: 3.75rem;
+}
+
+.spinner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
