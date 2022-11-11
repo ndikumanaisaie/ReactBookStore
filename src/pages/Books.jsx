@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import AddBookForm from '../components/AddBookForm';
 import Spinner from '../components/Spinner';
+import AddBookForm from '../components/AddBookForm';
 import Book from '../components/Book';
 import { getBooks } from '../redux/books/bookSlice';
 
@@ -19,7 +19,6 @@ const Home = () => {
 
   return (
     <div style={{
-      backgroundColor: '#fafafa',
       padding: '0 5%',
     }}
     >

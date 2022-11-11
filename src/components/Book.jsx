@@ -1,15 +1,20 @@
-/* eslint-disable no-alert */
+/* esdivnt-disable no-alert */
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import '../assets/styles/book.css';
-import { AiOutlineLoading3Quarters as Loading } from 'react-icons/ai';
+import {
+  CircularProgressbar,
+  buildStyles,
+} from 'react-circular-progressbar';
 import { deleteBook, removeBook } from '../redux/books/bookSlice';
 import Spinner from './Spinner';
 
 const Book = ({ books }) => {
   const { status } = useSelector((state) => ({ ...state.books }));
+
+  console.log(books);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -35,24 +40,34 @@ const Book = ({ books }) => {
                 <span>{book.category}</span>
                 <h2>{book.title}</h2>
                 <p>{book.author}</p>
-                <ul>
-                  <li className="btn"><button type="button">Comments</button></li>
-                  <li className="btn"><button type="button" onClick={() => handleRemove(book.id)}>Remove</button></li>
-                  <li className="btn"><button type="button">Edit</button></li>
-                </ul>
+                <div className="control-btn">
+                  <div className="btn"><button type="button">Comments</button></div>
+                  <div className="btn"><button type="button" onClick={() => handleRemove(book.id)}>Remove</button></div>
+                  <div className="btn"><button type="button">Edit</button></div>
+                </div>
               </div>
               <article>
                 <div className="pourcentage">
-                  <Loading className="loading" />
+                  <CircularProgressbar
+                    value={book.percentage}
+                    styles={buildStyles({
+                      pathColor: '#0290ff',
+                      trailColor: '#c4c4c4',
+                    })}
+                    className="loading"
+                  />
                   <div>
                     <span>
-                      64
-                      %
+                      {
+                        `${book.percentage} %`
+                      }
                     </span>
                     <p>completed</p>
                   </div>
                 </div>
                 <div className="update">
+                  <span>CURRENT CHAPTER</span>
+                  <h2>{book.chapter}</h2>
                   <button type="button">update progress</button>
                 </div>
               </article>
