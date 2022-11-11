@@ -1,7 +1,7 @@
 /* esdivnt-disable no-alert */
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import '../assets/styles/book.css';
 import {
@@ -25,6 +25,9 @@ const Book = ({ books }) => {
       dispatch(removeBook({ id }));
     }
   };
+  // const handleEdit = (book) => {
+  //   dispatch(updatedBook(book));
+  // };
 
   if (status === 'loading') {
     return <Spinner />;
@@ -43,7 +46,11 @@ const Book = ({ books }) => {
                 <div className="control-btn">
                   <div className="btn"><button type="button">Comments</button></div>
                   <div className="btn"><button type="button" onClick={() => handleRemove(book.id)}>Remove</button></div>
-                  <div className="btn"><button type="button">Edit</button></div>
+                  <div className="btn">
+                    <Link to={`/editBook/${book.id}`}>
+                      Edit
+                    </Link>
+                  </div>
                 </div>
               </div>
               <article>

@@ -1,8 +1,9 @@
 /* eslint-disable no-alert */
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { nanoid } from '@reduxjs/toolkit';
-import { createBook } from '../redux/books/bookSlice';
+import { useParams } from 'react-router-dom';
+import { createBook, updatedBook } from '../redux/books/bookSlice';
 import '../assets/styles/addNewBook.css';
 
 const AddBookForm = () => {
@@ -13,6 +14,18 @@ const AddBookForm = () => {
   });
 
   const dispatch = useDispatch();
+
+  const { title, author, category } = inputText;
+  const { id } = useParams();
+
+  const { books } = useSelector((state) => ({ ...state.books }));
+
+  useEffect(() => {
+    if (id) {
+      const bookToEdit = books.find((book) => book.id === id);
+      setInputText({ ...bookToEdit });
+    }
+  }, [id, books]);
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -25,16 +38,30 @@ const AddBookForm = () => {
   const addNewBook = (e) => {
     e.preventDefault();
     if (inputText.title.trim() && inputText.author.trim()) {
-      dispatch(createBook({
-        ...inputText,
-        item_id: nanoid(),
-      }));
-      setInputText({
-        title: '',
-        author: '',
-      });
+      if (title && author && category) {
+        if (!id) {
+          dispatch(createBook({
+            ...inputText,
+            item_id: nanoid(),
+          }));
+        } else {
+          dispatch(updatedBook(inputText));
+        }
+        setInputText({
+          title: '',
+          author: '',
+        });
+      }
+      // dispatch(createBook({
+      //   ...inputText,
+      //   item_id: nanoid(),
+      // }));
+      // setInputText({
+      //   title: '',
+      //   author: '',
+      // });
     } else {
-      alert('Please add book and author');
+      alert('Please add book, author and select category');
     }
   };
 

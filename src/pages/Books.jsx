@@ -6,12 +6,12 @@ import Book from '../components/Book';
 import { getBooks } from '../redux/books/bookSlice';
 
 const Home = () => {
-  const { books, status } = useSelector((state) => ({ ...state.books }));
-
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getBooks());
   }, [dispatch]);
+
+  const { books, status } = useSelector((state) => ({ ...state.books }));
 
   if (status === 'loading') {
     return <Spinner />;
