@@ -25,6 +25,9 @@
 ## Link to URL on gitHub
 - [ReactBookStore](https://github.com/ndikumanaisaie/ReactBookStore.git)
 
+## Link to URL in the browser
+- [ReactBookStore](https://bookcollectionreact.netlify.app/)
+
 ## Getting Started
 
 To get a local copy up and running follow these simple example steps.
